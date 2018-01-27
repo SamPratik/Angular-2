@@ -7,7 +7,8 @@ import { EmployeeService } from './employee.service';
               <h2>Employee Details</h2>
               <p>The id of the employee is id = {{ employeeId }}</p>
               <a (click)="goNext()">Next</a>
-              <a (click)="goPrevious()">Previuos</a>
+              <a (click)="goPrevious()">Previuos</a><br/>
+              <a (click)="goBack()">Back</a>
             `
 })
 
@@ -37,5 +38,9 @@ export class EmployeeDetailComponent {
     } else {
       this.router.navigate(['/details', this.employeeId - 1]);
     }
+  }
+
+  goBack() {
+    this.router.navigate(['employees', {id: this.employeeId}]);
   }
 }
