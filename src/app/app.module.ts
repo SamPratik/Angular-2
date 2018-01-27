@@ -11,13 +11,16 @@ import { AppComponent } from './app.component';
 import {TutorialsComponent} from './tutorials.component';
 import { EmployeeListComponent } from './employee-list.component';
 import { EmployeeDetailComponent } from './employee-detail.component';
+import { PageNotFoundComponent } from './page-not-found.component';
+
 import { EmployeeService } from './employee.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     TutorialsComponent,
-    routingComponents
+    routingComponents,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
