@@ -17,12 +17,6 @@ export class EmployeeService {
   // }
   getEmployees() {
     return this._http.get('api-data/employeedata.json')
-      .map((response: Response) => response.json())
-      .catch(this._errorHandler);
-  }
-
-  _errorHandler(error: Response) {
-    console.error(error);
-    return Observable.throw(error || "Server Error");
+      .map((response: Response) => response.json());
   }
 }

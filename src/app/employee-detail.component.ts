@@ -1,28 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { EmployeeService } from './employee.service';
 
 @Component({
-  selector: 'employee-detail',
   template: `
               <h2>Employee Details</h2>
-              <p>{{ errMsg }}</p>
-              <ul>
-                <li *ngFor="let employee of employees">
-                  {{ employee.id }}. {{ employee.name }} - {{ employee.gender }}
-                </li>
-              </ul>
+              <p>The id of the employee is id = {{ employeeId }}</p>
             `
 })
 
 export class EmployeeDetailComponent {
-  employees = [];
-  errMsg: string;
-  constructor(private employeeService: EmployeeService) {
-
-  }
+  employeeId: number;
+  constructor(private router: ActivatedRoute) {}
   ngOnInit() {
-    this.employeeService.getEmployees()
-      .subscribe(responseEmployeeData => this.employees = responseEmployeeData,
-                responseEmployeeErr => this.errMsg = responseEmployeeErr);
+    this.employeeId = this.router.snapshot.params['id'];
   }
 }

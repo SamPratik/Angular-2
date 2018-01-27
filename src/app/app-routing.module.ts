@@ -4,8 +4,8 @@ import { EmployeeListComponent } from './employee-list.component';
 import { EmployeeDetailComponent } from './employee-detail.component';
 
 const routes: Routes = [
-  {path: 'employees', component: EmployeeListComponent},
-  { path: 'details', component: EmployeeDetailComponent }
+  { path: '', component: EmployeeListComponent },
+  { path: 'details/:id', component: EmployeeDetailComponent },
 ];
 
 @NgModule ({
@@ -17,4 +17,4 @@ const routes: Routes = [
   ]
 })
 export class AppRoutingModule {}
-export const routingComponents = [EmployeeListComponent, EmployeeDetailComponent];
+export const routingComponents = [EmployeeListComponent,EmployeeDetailComponent];
