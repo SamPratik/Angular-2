@@ -37,7 +37,7 @@ export class EmployeeListComponent {
     });
   }
   onSelect(employee) {
-    this.router.navigate(['/details', employee.id]);
+    this.router.navigate(['/employees', employee.id, 'random']);
   }
   isSelected(employee) {
     return employee.id === this.selectedId;
