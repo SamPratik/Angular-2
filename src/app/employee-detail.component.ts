@@ -44,6 +44,6 @@ export class EmployeeDetailComponent {
   }
 
   goBack() {
-    this.router.navigate(['employees', {id: this.employeeId}]);
+    this.router.navigate(['employees', {id: this.employeeId, random: 'optional'}]);
   }
 }
