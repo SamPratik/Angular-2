@@ -28,22 +28,44 @@ export class EmployeeDetailComponent {
   goNext() {
     if(this.employeeId == 5) {
       this.employeeId = 1;
-      this.router.navigate(['/employees', 1, 'random']);
+
+      // this.router.navigate(['/employees', 1]);
+      // staying in the current URL ('.') with an optional 'id' parameter
+      // ({id: employeeIdNo})
+      // 'this.route' will return the current URL
+      this.router.navigate(['.', {id: 1}], {relativeTo: this.route})
     } else {
-      this.router.navigate(['/employees', (this.employeeId + 1), 'random']);
+      // this.router.navigate(['/employees', this.employeeId + 1]);
+      // staying in the current URL ('.') with an optional 'id' parameter
+      // ({id: employeeIdNo})
+      // 'this.route' will return the current URL
+      this.router.navigate(['.', {id: (this.employeeId + 1)}], {relativeTo: this.route})
     }
   }
 
   goPrevious() {
     if(this.employeeId == 1) {
       this.employeeId = 5;
-      this.router.navigate(['/employees', 5, 'random']);
+      // this.router.navigate(['/employees', 5]);
+      // staying in the current URL ('.') with an optional 'id' parameter
+      // ({id: employeeIdNo})
+      // 'this.route' will return the current URL
+      this.router.navigate(['.', {id: 5}], {relativeTo: this.route});
     } else {
-      this.router.navigate(['/employees', (this.employeeId - 1), 'random']);
+      // this.router.navigate(['/employees', this.employeeId - 1]);
+      // staying in the current URL ('.') with an optional 'id' parameter
+      // ({id: employeeIdNo})
+      // 'this.route' will return the current URL
+      this.router.navigate(['.', {id: (this.employeeId - 1)}], {relativeTo: this.route})
     }
   }
 
   goBack() {
-    this.router.navigate(['employees', {id: this.employeeId, random: 'optional'}]);
+
+    // this.router.navigate(['employees', {id: this.employeeId}]);
+    // going up from the current URL ('../') with an optional 'id' parameter
+    // ({id: employeeIdNo})
+    // 'this.route' will return the current URL
+    this.router.navigate(['../', {id: this.employeeId}], {relativeTo: this.route})
   }
 }
