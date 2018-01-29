@@ -14,7 +14,9 @@ import {
   template: `
               <h2>Root Component</h2>
               <button (click)="toggle()">Toggle</button>
-              <div class="room" [@lightsOnOff]="roomState"></div>
+              <div class="room text-center" [@lightsOnOff]="roomState">
+                <strong>Rotate 90 degree</strong>
+              </div>
             `,
   styles: [
     `
@@ -29,13 +31,13 @@ import {
   animations: [
     trigger('lightsOnOff', [
       state('off', style({
-        backgroundColor: 'black'
+        backgroundColor: 'black',
+        color: 'white'
       })),
       state('on', style({
         backgroundColor: 'white'
       })),
-      transition('on => off', [animate('2s')]),
-      transition('off => on', [animate('2s')])
+      transition('on <=> off', [animate('2s', style({transform: 'rotate(90deg)'}))])
     ])
   ]
 })
