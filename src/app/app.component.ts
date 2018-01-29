@@ -37,7 +37,8 @@ import {
       state('on', style({
         backgroundColor: 'white'
       })),
-      transition('on <=> off', [animate('2s', style({transform: 'rotate(90deg)'}))])
+      transition('on => off', [animate('2s 3s ease-in', style({transform: 'rotate(90deg)'}))]),
+      transition('off => on', [animate('2s ease-out', style({transform: 'rotate(-90deg)'}))])
     ])
   ]
 })
